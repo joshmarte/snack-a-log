@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Snack from "./Snack";
 import { Link } from "react-router-dom";
+import HeartHealth from "./HeartHealth";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -17,18 +17,25 @@ export default function Snacks() {
       .catch((err) => {
         console.log(err);
       });
-  }, [snacks]);
+  }, []);
 
   return (
     <div className="Snacks">
-      <h4>the snack health</h4>
-      {snacks.map((snack) => {
-        return (
-          <Link to={`/snacks/${snack.id}`}>
-            <Snack key={snack.id} snack={snack} />
-          </Link>
-        );
-      })}
+      <article>
+        {snacks.map((snack) => {
+          return (
+            <div key={snack.id} className="Snack">
+              <img src={snack.image} alt={snack.name} />
+              <Link to={`/snacks/${snack.id}`}>
+                <h4>{snack.name}</h4>
+                <h4>
+                  <HeartHealth snackHealth={snack} />
+                </h4>
+              </Link>
+            </div>
+          );
+        })}
+      </article>
     </div>
   );
 }

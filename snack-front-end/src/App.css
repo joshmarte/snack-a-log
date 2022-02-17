@@ -1,5 +1,13 @@
 body {
-  max-width: 90%;
+  font-family: "Overlock";
+}
+
+h1 {
+  font-family: "Carter One";
+}
+
+main {
+  width: 90%;
   margin: auto;
 }
 
@@ -8,15 +16,39 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: rgb(37, 36, 34);
-  padding: 1em 3em;
-  margin-bottom: 1em;
+  color: rgb(235, 94, 40);
+  padding: 15px 45px;
+  margin-bottom: 15px;
 }
 
 nav a {
   text-decoration: none;
   color: rgb(235, 94, 40);
 }
+nav button {
+  border: 1px solid white;
+  color: rgb(235, 94, 40);
+}
 
-.Index {
-  font-family: Overlock;
+h4 {
+  margin: 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.Snacks div {
+  width: 150px;
+  padding: 15px;
+  background-color: rgb(255, 252, 242);
+}
+
+.Snacks img {
+  width: 150px;
 }
