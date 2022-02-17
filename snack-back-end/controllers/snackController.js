@@ -101,10 +101,19 @@ snacks.delete("/:id", async (req, res) => {
 });
 
 // UPDATE
-snacks.put("/:id", async (req, res) => {
+snacks.put("/:id", name, async (req, res) => {
   const { id } = req.params;
-  const updatedSnack = await updateSnack(id, req.body);
-  res.status(200).json(updatedSnack);
+  let snack = req.body;
+  snack = {
+    ...snack,
+    is_healthy: healthy(snack),
+  };
+  const updatedSnack = await updateSnack(id, snack);
+  let response = {
+    success: true,
+    payload: updatedSnack,
+  };
+  res.status(200).json(response);
 });
 
 // EXPORT
